@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <head>
-  <title>Your page title here</title>
+  <title>Phil's Tech Blog</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="your-stylesheet-link-here.css">
 </head>
 
 <main>
-  <h1>Post Title</h1>
-  <h2>The subtitle, if you want it</h2>
-  <h4>Today's Date</h4>
+  <h1>What is all this version control stuff?</h1>
+  <h2>Why my life was so much easier a week ago. Ok not really.</h2>
+  <h4>July 10, 2015</h4>
 
   <section>
     <p>
-      Your first paragraph goes here. I'm using Web 2.0 Ipsum to add content. Webtwo ipsum dolor sit amet, eskobo chumby doostang bebo. Nuvvo koofers oooooc voxy klout jaiku palantir flickr insala zinch napster oooj, airbnb mzinga vimeo yuntaa balihoo plickers whrrl edmodo appjet kippt. Yoono imvu hulu eduvant blekko imvu ebay voki napster skype, hipmunk zinch wesabe bubbli ning meebo bitly zlio. Fleck elgg ideeli disqus rovio zillow sifteo blyve jabber, bitly geni zoho foodzie qeyno twones klout jiglu, hipmunk jaiku balihoo plickers heekya eskobo yuntaa. Sococo whrrl plickers movity whrrl zinch voki nuvvo meebo, quora heroku unigo kno wufoo jibjab woopra, groupon yuntaa spock mzinga jumo meebo movity.
+      So this is my first week of Phase 0 in Dev Bootcamp. That means I am in my home, on my newly purchased four-year old refurbished Macbook Pro (thank you <a href="http://macofalltrades.com">macofalltrades.com</a>!) which sailed smoothly through the dev environment installation process, thank God. We had to learn git and GitHub pretty quickly. (They are not the same!) I get it, I think. Here is my attempt to explain it to myself, so that I really get it, and hopefully you do too. 
     </p>
     <p>
-        Lijit groupon ning stypi eskobo blyve ning shopify oooooc, meebo groupon prezi ebay voxy bitly diigo. Spock ifttt skype hipmunk movity whrrl bebo oooj empressr, disqus insala palantir bitly dropio zimbra zinch oooooc etsy, klout spock insala quora omgpop trulia jibjab. Sifteo dogster ebay grockit geni scribd bitly ning unigo, plickers voki mzinga tumblr kaboodle mozy whrrl woopra udemy, foodzie joukuu elgg twitter shopify akismet rovio. Kosmix eduvant woopra dopplr balihoo ning bebo akismet, boxbe vimeo kosmix shopify zappos bitly geni loopt, qeyno disqus sococo squidoo wikia octopart.
+        <strong>Why version control? Why can't I just copy and paste my coding changes to the server, and override the old stuff, like in FTP or a computer file structure?</strong> Because then you have no checkpoints to roll back to, just in case (aka "commits"), and no way to facilitate having another set of eyes review your changes before they are added (because we all make mistakes).  Git's version control tracks everything, and creates several layers between initial changes and the master files, to protect the master. The master must always work! The only way to ensure the master always works is to protect it. Commit points also give us ways to rollback any changes that we thought were bueno, but ended up being not so bueno. (I hope I am spelling bueno right. Five years of Spanish, and all I remember is tocadiscos. I think that is a word.)
     </p>
     <p>
-        Kazaa meevee eduvant gsnap movity kosmix kazaa klout jumo, trulia unigo groupon wakoopa spock knewton glogster heroku oooj, ning imvu appjet eskobo zillow twitter rovio. Glogster chegg voxy greplin dopplr voki foodzie xobni weebly odeo, sococo zynga knewton loopt palantir lala blyve tumblr blekko, twones akismet plaxo kippt meebo zillow zooomr insala. Oovoo imeem napster divvyshot zinch imeem voxy shopify, fleck kazaa zinch lanyrd boxbe joost wakoopa nuvvo, orkut elgg heekya sifteo scribd napster. Yammer yoono groupon dopplr cloudera nuvvo eduvant klout, voxy groupon disqus eduvant oooj greplin.
+        And let's not forget branching. Git allows us to create copies of our code to edit, so that our edits are not made to the master, but rather to a copy of the master. Then, after I edit some code, and send it to someone to error check, they can add it to the master.
     </p>
+    <p>
+        <strong>What is this "another set of eyes" business?</strong> It is very easy to create code that is buggy or broken but not realize it. Someone else can more easily pick up my mistakes, which is why I need to run all my code by someone else before it is added to the master. GitHub allows for this with "pull requests". I "pull" (or ask) someone else to review my code, then they review my code, then they add the code to the master. Thus, the master doesn't get changed until someone else has approved the changes. There are no lone wolfs in coding! Without a system like GitHub's pull requests, there would be no way for teams of developers to do this remotely.
+    </p>
+    <p>
+      <strong>What is a "checkpoint"?</strong> Do you remember playing Legend of Zelda? When Link would get to a new level, if he died, he would start again from the beginning of that level; he didn't have to go back to the start screen. Each "commit" in git is like a checkpoint in a video game: once you commit your changes, you have moved up to that spot and will always start from there going forward. But there is an added advantage. Each "commit" is also a rollback point, like in Windows OS System Restore. So if the most recent changes were no good, we can roll back to an earlier commit, to when the code actually worked. (Like in Windows, when you install a crappy driver that messes everything up, just do a System Restore back to a restore point that didn't contain that crappy driver. BTW I ditched Windows with this coding stuff, which looks like a really solid move.) Also these commit points come with logs, which give detailed info on the changes made at each point, helping others understand the edits that have already been made. 
+    </p>
+    <p>
+      <strong>So why GitHub?</strong> Why not? Storing my code online allows the world to see it, or at least the people I want to see it. They can help me, and I can help them. Well I probably can't help anyone yet. But I will. Hopefully. GitHub allows collaboration in editing code, which harnesses the collective knowledge of developers all over the world.
+
+    </p>
+    <p>
+    <strong>Sum it up.</strong> Ok here goes: Our code can't break down. And our code needs to be solid. And our code needs to be collaborated on. And our code needs to be understandable to others. Git protects the code from buggy edits (version control, branching) and tracks the edits so that others can understand what has been changed (logs). GitHub facilitates collaborating on editing code, with a special feature that facilitates error checking by someone other than the author of the code being checked (pull requests).
+      
+    </p>
+    <p>It's all straight in my mind, I swear.</p>
 
       <!-- copy and paste as many sections as you want to add paragraphs -->
   </section>
