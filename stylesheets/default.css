@@ -1,0 +1,58 @@
+/* hex colors brown 7F3F27 FFB69B FF7E4E 7F5B4D CC643F */
+
+* {
+	font-family: Open Sans, Arial;
+	text-align: center;
+	background-color: #F2D1C9;
+
+}
+
+#header {
+	background-color: #CC643F;
+	margin-left: 10%;
+	width: 80%;
+	text-align: center;
+	font-size: 6em;
+}
+
+#nav {
+	background-color: #F2D1C9;
+	margin-left: 10%;
+	width: 80%;
+	text-align: center;	
+	font-size: 1.5em;
+}
+
+#section1 {
+	background-color: #FFB69B;
+	float: left;
+	margin-left: 10%;
+	width: 26%;
+	height: 20em;
+}
+
+#section2 {
+	background-color: #FF7E4E;
+	float: left;
+	width: 26%;
+	height: 20em;
+	margin-left: 1%;
+}
+
+#section3 {
+	background-color: #7F5B4D;
+	float: left;
+	margin-left: 1%;
+	width: 26%;
+	height: 20em;
+}
+
+#footer {
+	background-color: #FFB69B;
+	position: fixed;
+	height: 2em;
+	margin-left: 10%;
+	width: 80%;
+	bottom: 0px;
+	text-align: center;
+}
