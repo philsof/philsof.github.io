@@ -2,7 +2,6 @@
 
 * {
 	font-family: Open Sans, Arial;
-	text-align: center;
 	background-color: #F2D1C9;
 
 }
@@ -55,4 +54,45 @@
 	width: 80%;
 	bottom: 0px;
 	text-align: center;
+}
+
+.post_title {
+	margin-left: 10%;
+	text-align: left;
+	width: 80%;
+	font-size: 2em;
+	margin-bottom: 1%;
+} 
+
+.post_subtitle {
+margin-left: 10%;
+text-align: left;
+width: 80%;
+font-size: 1.5em;
+margin-bottom: 1%;
+}
+
+.post_date { 
+
+margin-left: 10%;
+text-align: left;
+width: 80%;
+font-style: italic;
+font-size: 1em;
+margin-bottom: 1%;
+}
+
+.post_body {
+margin-left: 10%;
+text-align: left;
+width: 80%;
+font-size: 1em;
+}
+
+.post_link {
+text-align: right;
+margin-left: 10%;
+width: 80%;
+font-size: 1em;
+margin-bottom: 2%;
 }
