@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>TITLE</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+  <link rel="stylesheet" type="text/css" href="/blog_template.css">
+</head>
+<body>
+<header id="header">Coding the Phil Way</header>
+    <nav id="nav"><a href="#">About</a> |
+      <a href="#">Projects</a> |
+      <a href="#">Links</a> |
+      <a href="blog-template.html">Blog</a> | 
+      <a href="#">Contact</a> |
+    </nav>
+<br><br>
+<article>
+  <h2 class="post_title">Ask the Ruby Novice: Arrays vs. Hashes</h2>
+  <h3 class="post_subtitle">Or, what I learned in week 3 at Dev Bootcamp</h3>
+
+  <div class="post_body">
+    
+      <p>So this week we covered arrays and hashes. You may be saying, what the ? Well, let me fill you in: arrays and hashes are Ruby objects that hold collections. You may still be saying, what the ?  Well let me fill you in some more: computers use collections to keep track of things. What kind of things? Everything. Take a look at some baseball stats:</p>
+      <img src="career_stats.png" alt="Babe Ruth's career baseball stats">
+      <p>What is this? This is Babe Ruth's career stat line. Babe Ruth was the greatest baseball player to ever live. How do I know this? Because he has a candy bar named after him.</p>
+      <p>Anyway, The top line are his career totals, the second line are his 162 game averages, and the third line gives the abbreviation for each stat. (R = runs scored; H = hits, doubles, triples, home runs, RBIs, you get the idea.)</p>
+      <p>Now let's say we want to program a computer to hold each of Babe's career stats in such a way that we could access them when desired. A great way to do that would be to utilize a <em>hash</em>, which can store pairs of information, like this:</p>
+      <img src="hash_return_R.png" alt="Ruby hash code returning runs scored">
+      <p>See the code? The stat abbreviations serve as the keys, and the stat totals serve as the values. The last line of code will display on the screen Babe's total runs scored ("R", which is 2,174). We could access any of Babe's stats like this. Also, this hash could store a lot more information. We could track all of Babe's stats. We could track anything!</p>
+      <p><em>Arrays</em> are another type of collection object in Ruby, which are simpler than hashes. Arrays track a group of objects and automatically assign ID numbers (called <em>indexes</em>) to each object.</p>
+      <p>Let's say you have a bunch of numbers and want to determine which number is the smallest. An array would do the job:</p>
+      <img src="array_smallest_number.png" alt="print smallest number in an array">
+      <p>The above code contains an array of several numbers, then displays on the screen the smallest number in the array (that's what the .min does). So -3 will display on the screen.</p>
+      <p>The array is not as dynamic as the hash, and it also takes longer for the array code to run than the hash code (because the .min method has to cycle through the entire array to determine which number is the smallest, while in the hash code all the computer has to do is locate a specific hash). But arrays are used often to collect and manipulate data. In fact, you could store arrays inside hashes, and hashes inside arrays! Hello! Maybe we will get into that next time.</p>
+      <p>Ruby novice Phil signing off. Good night and God bless America.</p>	
+  </div>
+  </article>
+  <br><br>
+<div class="post_link"><a href="blog-template.html">Blog Home</a></div>
+
+<br />
+<br />
+
+
+<footer id="footer">FOOTER</footer>
+</body>
+</html>
