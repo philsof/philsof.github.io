@@ -111,4 +111,11 @@ margin-bottom: 2%;
 	font-size: 2em;
 	margin-bottom: 1%;
 }
+
+.center_tight {
+	margin-left: 20%;
+	text-align: left;
+	width: 60%;
+	font-size: 1.5em;
+	margin-bottom: 1%;
 }
