@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>TITLE</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+  <link rel="stylesheet" type="text/css" href="/blog_template.css">
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+</head>
+<body>
+<header id="header">Coding the Phil Way</header>
+    <nav id="nav">
+      <a href="../index.html">Home</a> |
+      <a href="../about.html">About</a> |
+      <a href="#">Projects</a> |
+      <a href="#">Links</a> |
+      <a href="blog-index.html">Blog</a> | 
+      <a href="../contact.html">Contact</a> |
+    </nav>
+<br><br>
+<article>
+  <h2 class="post_title">Classes in Ruby</h2>
+  <h3 class="post_subtitle">Or, how to make something that you can use</h3>
+  <div class="post_date">August 11, 2015</div>
+
+  <div class="post_body">
+    <p>This week we are delving into classes in Ruby. What are classes? Let's define them by what they do: classes create objects and assign them tailor-made methods. What does that mean? Let me try to explain with a real-world example: a commercial airline flight.</p>
+    <p>Let's say we made a class in Ruby called Flight.  In this class we create </p>
+
+    <pre class="prettyprint">
+    class Flight
+    end
+    </pre>
+    <p>Boom! We just created a new class in Ruby, called Flight. But it has no content yet. Let's give it a method that assigns an airline to the flight:</p>
+
+    <pre class="prettyprint">
+    class Flight
+    
+      def initialize(airline_name,flight_number)
+      @airline = airline_name
+      @flight_number = flight_number
+      end
+    
+    end
+    </pre> 
+    <p>Now our Flight class has a method named .initialize, which is a special method name in Ruby: whenever a new object is made for this Flight class, the initialize method will be called on the new object. Our initialize method accepts two arguments, an airline name and a flight number, and assigns them to two class variables named @airline and @flight_number (that's what the leading @ means; any variable that looks like @this is a class variable, and can be utilized by any method in the class).</p> 
+
+    <p>Ok now let's create a new Flight object, and give it an airline name and flight number:</p>
+
+    <pre class="prettyprint">
+    class Flight
+    
+      def initialize(airline_name,flight_number)
+      @airline = airline_name
+      @flight_number = flight_number
+      end
+    
+    end
+
+    our_flight = Flight.new("Delta",562)
+    </pre> 
+    <p>We just created a new object for our Flight class! The new object is named our_flight, and it has Delta as its airline name and 562 as it's flight number. But nothing will print to the screen when we run this. And what can we do with this?</p>
+
+    <p>Let's start by retrieving info from our new Flight object. If I add some attributes to the class, we can start to retrieve information and edit information:</p>
+
+    <pre class="prettyprint">
+    class Flight
+      
+      #This line succinctly creates methods that can retrieve
+      #and edit the airline info and flight info
+      attr_accessor :airline, :flight_number
+
+      def initialize (airline_name, flight_number)
+      @airline = airline_name
+      @flight_number = flight_number
+      end
+    
+    end
+
+    our_flight = Flight.new("Delta", 562)
+
+    p our_flight.airline # This will print out "Delta"
+    p our_flight.flight_number # This will print out 562
+
+    our_flight.airline = "JetBlue" # This changes the airline name
+    our_flight.flight_number = 2373 #This changes the flight number
+
+    p our_flight.airline # This will print out "JetBlue"
+    p our_flight.flight_number # This will print out 2373
+
+    </pre>
+    <p>I did a few new things above. First, I added the attr_accessor line, which creates two methods: .airline and .flight_number, each of which can be used to print the current info, or edit the current info.  Then, I added a few p statements to show this in action. The first two p statements print out the current info (Delta and 562), then we use those same methods to assign new values, and the final two p statements print the new info. We just retrieved and assigned values to our new Flight object! </p>
+    <p>Now let's create some more methods that would make sense for any flight:</p>
+
+    <pre class="prettyprint">
+    class Flight
+      
+      #I added a few more to this line, to match the new variables below
+      attr_accessor :airline, :flight_number, :start_time, :end_time, :origin, :destination
+
+      def initialize (airline_name, flight_number)
+      @airline = airline_name
+      @flight_number = flight_number
+      end
+
+      #This method assigns start and end times to our flight
+      def times(start_time, end_time)
+      @start_time = start_time
+      @end_time = end_time
+      end
+
+      def locations(origin, destination)
+      @origin = origin
+      @destination = destination
+      end
+    end
+
+    our_flight = Flight.new("Delta", 562)
+
+    #sets times for flight
+    our_flight.times("9:00am", "12:00pm") 
+
+    p our_flight.start_time #This will print out "9:00am"
+    p our_flight.end_time #This will print out "12:00pm"
+
+    # sets origin and destination for flight
+    our_flight.locations("New York JFK", "Fort Lauderdale FLL") 
+
+    p our_flight.origin #This will print out "New York JFK"
+    p our_flight.destination #This will print out "Fort Lauderdale FLL"
+    
+    #changes the start time of flight
+    our_flight.start_time = "9:10am"
+
+    p our_flight.start_time #This will print out "9:10am"
+
+    </pre>
+    <p>There you have it! A quick primer on classes and class objects and their methods! I hope this made sense.</p>
+  </div>
+  </article>
+  <br><br>
+<div class="post_link"><a href="blog-index.html">Blog Home</a></div>
+
+<br />
+<br />
+
+
+<footer id="footer">FOOTER</footer>
+</body>
+</html>
