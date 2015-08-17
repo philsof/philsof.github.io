@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Coding Stuff</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+  <link rel="stylesheet" type="text/css" href="/blog_template.css">
+   <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+</head>
+<body>
+<header id="header">Coding the Phil Way</header>
+    <nav id="nav">
+      <a href="../index.html">Home</a> |
+      <a href="../about.html">About</a> |
+      <a href="#">Projects</a> |
+      <a href="#">Links</a> |
+      <a href="blog-index.html">Blog</a> | 
+      <a href="../contact.html">Contact</a> |
+    </nav>
+<br><br>
+<article>
+  <h2 class="post_title">Variable Scopes in Ruby</h2>
+  <h3 class="post_subtitle">Or, Who's on First?</h3>
+  <div class="post_date">August 17, 2015</div>
+
+  <div class="post_body">
+    
+      <p>This week at DBC we have been diving into Ruby, playing with variable scope as part of the week's challenges. Let me see if I can explain what is going on with this.</p>
+      <p>First, here is a list of the various variable scopes in Ruby:</p>
+      <ul>
+        <li><strong>$global_variables</strong> are available to the entire program, and can be changed, and do not throw a warning if you try to change them</li>
+        <li><strong>CONSTANTS</strong> are available to the entire program, and <strong>can</strong> be changed, but they do throw a warning if you try to change them</li>
+        <li><strong>@@class_variables</strong> are available only to the class they are in, and instances of that class (and also sub-classes and instances of sub-classes). These variables are initialized when the class is initialized; there is only one of each of them. (More on this below.)</li>
+        <li><strong>@instance_variables</strong> are available only to the class they are in, and the methods of that class (and also all sub-classes and instances of sub-classes), but they are initialized for each instance of the class. We will get into this more below.</li>
+        <li><strong>local_variables</strong> are available only to the method that calls them, during the current call.</li>
+      </ul>
+      <p>Ok, so what does this look like in practice? Let's see if this helps.</p>
+      <pre class="prettyprint">
+      $global_variable = 2 
+      CONSTANT = 3
+
+      class Class_scope
+        @@class_variable = 4
+        
+        def initialize
+          @instance_variable1 = 5
+        end
+
+        def method_scope
+          @instance_variable2 = 6
+          local_variable = 7
+        end
+      end
+
+      p $global_variable #will return 2
+      p CONSTANT #will return 3
+      p @@class_variable #will throw an error: "uninitialized class variable"
+      p @instance_variable1 #will return nil
+      p @instance_variable2 #will return nil
+      p local_variable #will throw an error: "undefined local variable or method"
+      </pre>
+      <p>The above code shows that $global_variable can be accessed, and so can the CONSTANT variable, but our @@class_variable and both instance variables (@instance_variable_) and our local_variable are not accessible. (Oddly, the instance variables do return something: nil -- even though we have not initiated an object for the class yet!</p>
+      <p>Let's see what happens if I create a class object and try to access the class, instance, and local variables from several different places.  Here is the code with a bunch of p calls in specific places. All of the p calls succeed except the ones commented #CANT SEE FROM HERE:</p>
+      <pre class="prettyprint">
+$global_variable_top_level = "$global_top_level"
+CONSTANT_TOP_LEVEL = "CONSTANT_TOP_LEVEL"
+
+  class Class_scope
+    $global_variable_in_class = "$global_in_class"
+    CONSTANT_IN_CLASS = "CONSTANT_IN_CLASS"
+    @@class_variable = "@@class variable"
+        
+    def initialize(instance_argument)
+      @instance_argument = instance_argument
+      @instance_variable_init = "@instance_variable_init" 
+      local_variable_init = "local_variable_init"
+      
+      puts "These are called from initialize method:"
+      p $global_variable_top_level
+      p $global_variable_in_class
+      p CONSTANT_TOP_LEVEL
+      p CONSTANT_IN_CLASS
+      p @@class_variable
+      p instance_argument #THIS WILL BE DIFFERENT FOR EACH OBJECT INSTANCE
+      p @instance_variable_init
+      p local_variable_init
+      p local_variable_method_scope #CAN'T SEE THIS FROM HERE
+    end
+
+    def method_scope
+      @instance_variable_in_method = "@instance_variable_in_method"
+      local_variable_method_scope = "local_variable_method_scope"
+      
+      puts "These are called from method_scope method:"
+      p $global_variable_top_level
+      p $global_variable_in_class
+      p CONSTANT_TOP_LEVEL
+      p CONSTANT_IN_CLASS
+      p @@class_variable
+      p @instance_variable_init
+      p @instance_variable_in_method
+      p local_variable_init #CANT SEE THIS FROM HERE
+      p local_variable_method_scope
+    end
+  end
+
+first_object = Class_scope.new("number_1").method_scope #THIS RUNS BOTH CLASS METHODS
+
+second_object = Class_scope.new("number_2").method_scope #THIS RUNS BOTH CLASS METHODS
+
+puts "These are called from outside the class (top_level):"
+p $global_variable_top_level
+p $global_variable_in_class
+p CONSTANT_TOP_LEVEL
+p CONSTANT_IN_CLASS #CANT SEE THIS FROM HERE
+p @@class_variable #CANT SEE THIS FROM HERE
+p @instance_variable_init #CANT SEE THIS FROM HERE
+p @instance_variable_in_method #CANT SEE THIS FROM HERE
+p local_variable_init #CANT SEE THIS FROM HERE
+p local_variable_method_scope #CANT SEE THIS FROM HERE
+      </pre>
+      <p>As you can see, the calls to the top-level global variable and constant always succeed from anywhere; the calls to the class-level global variable always succed from anywhere also; the calls to the constant in the class only work from within the class, they do not work from top-level; and none of the class variables or instance variables or local variables can be accessed from outside the class. Notice also the local variables can only be accessed by the specific method they are in; the other method cannot access them.</p>
+      <p>Also, the instance variables are different for our two different class objects. The object first_object has an @instance_argument value of "number_1" while the second_object has an @instance_argument value of "number_2". The instance variable values are unique to each class object instance.</p>
+      <p>That was a lot! I hope that helps to explain variable scope in Ruby!</p>
+  </div>
+  </article>
+  <br><br>
+<div class="post_link"><a href="blog-index.html">Blog Home</a></div>
+
+<br />
+<br />
+
+
+<footer id="footer">FOOTER</footer>
+</body>
+</html>
