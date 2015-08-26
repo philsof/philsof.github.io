@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Coding Stuff</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+  <link rel="stylesheet" type="text/css" href="/blog_template.css">
+</head>
+<body>
+<header id="header">Coding Stuff</header>
+    <nav id="nav">
+      <a href="../index.html">Home</a> |
+      <a href="../about.html">About</a> |
+      <a href="../projects/index.html">Projects</a> |
+      <a href="#">Links</a> |
+      <a href="blog-index.html">Blog</a> | 
+      <a href="../contact.html">Contact</a> |
+    </nav>
+<br><br>
+<article>
+  <h2 class="post_title">JavaScript is not Ruby</h2>
+  <h3 class="post_subtitle">Or, how JavaScript helped me to understand Ruby</h3>
+  <div class="post_date">August 26, 2015</div>
+
+  <div class="post_body">
+    <p>This week at DBC we started learning JavaScript. I made a game with JS that was actually fun to make. But in the process it became clear that JavaScript and Ruby are very different. In this post I want to go into some of those differences, and how JS helped me to better understand Ruby.</p>
+    <p>JS objects are very easy to read. Here is one:</p>
+    <pre class="prettyprint">
+    var ganon = {
+    shield: 0,
+    sword: 0,
+    superpower: false,
+    hits_taken: 0,
+    success: false
+    };
+    </pre>
+    <p>This is the "ganon" object from my game. It has a real-world feel to it: it's named "ganon", and has various properties that could be set to any value (not just integers or boolean values).</p>
+    <p>Contrast this with a Ruby hash:</p>
+    <pre class="prettyprint">
+    ganon = {
+    "shield" => 0,
+    "sword" => 0,
+    "superpower" => false,
+    "hits_taken" => 0,
+    "success" => false
+    }
+    </pre>
+    <p>BUT, I have not yet seen a Ruby hash like this. (All of the hashes I have seen so far look like databases, not objects.) Why? Because in Ruby the objects are <em>class</em> objects. That is why the only Ruby hashes I have encountered so far have been database-type hashes, not object-type hashes. Ruby's class objects are the equivalent of JavaScript's objects. Thus the comparison with JS objects and Ruby hashes is a little like comparing apples to oranges. Basically they both start and end with {} and can both be made to hold similar data types (like above), but no one would use a Ruby hash to do this since that would defeat the purpose of Ruby classes and class objects. Because Ruby has classes and class objects, Ruby hashes have been relegated to holding database-type information.</p>
+
+    <p>On another note, I got a big takeaway from JS objects. Because all of the properties are put in an object that has a real-world name, it feels much more intuitive, at least to me. This actually helps me to use Ruby hashes in the future; now I understand that hashes <em>could</em> be used in a similar fashion, which helps me going forward. <em>But</em>, I also understand that using a Ruby hash in this way would undercut the power of Ruby classes and class objects. Thus, JS objects have also helped me understand how to better utilize Ruby classes and class objects.</p>
+
+    <p>Ruby is very powerful, but it is not as intuitive as JS in this area. The Ruby classes and class objects sort of hide the properties of objects, or at least distribute those properties around to different places, making it more difficult to "see" the object. Let me put it this way. Here is a Ruby class with the ganon info, and an edit to that info:</p>
+    <pre class="prettyprint">
+    class Player #this is class that will be used to create ganon object
+      attr_accessor :shield, :sword, :superpower, :hits_taken, :success
+      def initialize
+        @shield = 0
+        @sword = 0
+        @superpower = false
+        @hits_taken = 0
+        @success = false
+      end
+    end
+
+    ganon = Player.new #this creates new ganon object
+    ganon.shield = 100 #this changes ganon shield value to 100
+    </pre>
+    <p>Here is the same thing in JavaScript:</p>
+    <pre class="prettyprint">
+    var ganon = { //this creates new ganon object
+    shield: 0,
+    sword: 0,
+    superpower: false,
+    hits_taken: 0,
+    success: false
+    };
+    ganon.shield = 100 //this changes ganon shield value to 100
+    </pre>
+    <p>In JS the ganon object properties are very clearly connected to the ganon object. But in Ruby the class and the class object are separated a little bit, which makes it not as intuitive.</p>
+    <p>Maybe it's just me, but seeing JavaScript objects has helped me better understand the role of Ruby classes and class objects. And Ruby hashes.</p>
+    <p>That is all for now!</p>
+  </div>
+  </article>
+  <br><br>
+<div class="post_link"><a href="blog-index.html">Blog Home</a></div>
+
+<br />
+<br />
+
+
+<footer id="footer">FOOTER</footer>
+</body>
+</html>
