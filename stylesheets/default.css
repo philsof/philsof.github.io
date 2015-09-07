@@ -2,58 +2,94 @@
 
 * {
 	font-family: Open Sans, Arial;
-	background-color: #F2D1C9;
+	background-color: #C7DFC7;
+
+}
+a, a:visited {
+	text-decoration: none;
+	color: #000;
 
 }
 
+
 #header {
-	background-color: #CC643F;
+	background-color: #C7DFC7;
 	margin-left: 10%;
 	width: 80%;
 	text-align: center;
 	font-size: 6em;
+	border-radius: 5px;
+	font-family: 'Droid Sans', sans-serif; 
+	color: #525059;
 }
 
 #nav {
-	background-color: #F2D1C9;
+	background-color: #C7DFC7;
 	margin-left: 10%;
 	width: 80%;
 	text-align: center;	
+	/*font-size: 1.5em; */
+	color: #525059;
+	padding-top: 2em;
+}
+
+.tag_link {
+	font-family: "Open Sans Condensed", sans-serif;
+	text-align: center;
 	font-size: 1.5em;
+	padding: 1em 1em 1em 1em;
+	background-color: #C7DFC7;
+}
+
+a.tag_link:hover {
+	color: #FF0000;
+	}
+
+#span {
+	background-color: #C7DFC7;
+
 }
 
 #section1 {
-	background-color: #FFB69B;
 	float: left;
 	margin-left: 10%;
-	width: 26%;
+	width: 80%;
 	height: 20em;
+	border-radius: 5px;
+	color: #525059;
+	text-align: center;
+	font-size: 1.5em;
 }
 
 #section2 {
-	background-color: #FF7E4E;
+	background-color: #C7DFC7;
 	float: left;
 	width: 26%;
 	height: 20em;
 	margin-left: 1%;
+	border-radius: 5px;
+	color: #525059;
 }
 
 #section3 {
-	background-color: #7F5B4D;
+	background-color: #C7DFC7;
 	float: left;
 	margin-left: 1%;
 	width: 26%;
 	height: 20em;
+	border-radius: 5px;
+	color: #525059;
 }
 
 #footer {
-	background-color: #FFB69B;
+	background-color: #C7DFC7;
 	position: fixed;
 	height: 2em;
 	margin-left: 10%;
 	width: 80%;
 	bottom: 0px;
 	text-align: center;
+	color: #525059;
 }
 
 .post_title {
